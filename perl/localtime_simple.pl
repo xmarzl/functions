@@ -1,3 +1,5 @@
+#!/usr/bin/env perl
+
 # -- static variable
 my $localtime_simple_pattern = '.{4}(...) {1,2}(\d{1,2}) (\d\d):(\d\d):(\d\d) (\d{4})';
 
@@ -15,8 +17,13 @@ sub localtime_simple() {
   $f_day = sprintf("%02d",$f_day);
   
   # ---- translate month into numbers
-  $f_month = $f_month_number{$f_month}
+  $f_month = $f_month_number{$f_month};
   
   return ($f_day ,$f_month ,$f_year,
           $f_hour,$f_minute,$f_second);
 };
+
+## usage ##
+my ($day, $month, $year, $hour, $minute, $second) = &localtime_simple();
+
+print $year.'.'.$month.'.'.$day.' - '.$hour.':'.$minute.':'.$second."\n";
