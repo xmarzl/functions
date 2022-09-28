@@ -1,3 +1,4 @@
+#!/usr/bin/env perl
 # -- static variables
 my $regex_noncapturing = '^(?!#|\s+$|$)';
 
@@ -18,4 +19,4 @@ sub open_file_array($) {
 
 
 ## usage ##
-my @new_array = open_file_array('path_to_file');
+my @new_array = open_file_array('/path/to/file.typ');
