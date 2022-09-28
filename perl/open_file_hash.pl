@@ -1,3 +1,4 @@
+#!/usr/bin/env perl
 # -- static variables
 my $regex_noncapturing = '^(?!#|\s+$|$)';
 
@@ -24,4 +25,4 @@ sub open_file_hash($$) {
 
 
 ## usage ##
-my %new_hash = open_file_hash('path_to_file', ':');
+my %new_hash = open_file_hash('/path/to/file.typ', ':');
