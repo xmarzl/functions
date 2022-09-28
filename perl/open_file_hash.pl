@@ -2,8 +2,10 @@
 my $regex_noncapturing = '^(?!#|\s+$|$)';
 
 # -- open file as hash
-sub open_file_hash($) {
+sub open_file_hash($$) {
   my $f_file = shift;
+  my $f_separator = shift;
+  
   open(my $f_file_handler, '<', $f_file);
 
     # --- exclude comment, whitespace, empty lines
@@ -15,11 +17,11 @@ sub open_file_hash($) {
   chomp @f_file_lines;
 
   # --- split into hash
-  my %f_hash = map { split(/:/, $_) } @f_file_lines;
+  my %f_hash = map { split(/$f_separator/, $_) } @f_file_lines;
 
   return %f_hash;
 }
 
 
 ## usage ##
-my %new_hash = open_file_hash('path_to_file');
+my %new_hash = open_file_hash('path_to_file', ':');
